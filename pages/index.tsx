@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Index() {
   return (
@@ -9,10 +10,17 @@ export default function Index() {
       </Head>
 
       <header className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">MVP Starter</h1>
-        <button className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600">
-          Sign up
-        </button>
+        <h1 className="text-lg font-semibold">
+          <Link href="/">MVP Starter</Link>
+        </h1>
+        <div className="space-x-3">
+          <span className="text-lg text-gray-700 uppercase hover:font-medium hover:text-black">
+            <Link href="/why">Why</Link>
+          </span>
+          <button className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600">
+            Sign up
+          </button>
+        </div>
       </header>
 
       <main className="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-0">
