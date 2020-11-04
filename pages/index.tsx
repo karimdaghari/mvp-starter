@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export default function Index() {
   return (
-    <div className="grid">
+    <div>
       <Head>
         <title>MVP</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header className="flex">
         <h1>MVP</h1>
         <button>CTA</button>
       </header>
@@ -27,7 +27,8 @@ export default function Index() {
         <div>
           <Image
             src="https://opendoodles.s3-us-west-1.amazonaws.com/selfie.png"
-            layout="fill"
+            width={250}
+            height={250}
           />
         </div>
       </main>
