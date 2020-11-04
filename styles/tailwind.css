@@ -1,5 +1,25 @@
 @tailwind base;
 
+.container {
+  height: 100vh;
+}
+
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --main-content-height: 78%;
+  }
+  header,
+  footer {
+    min-height: calc((100% - var(--main-content-height)) / 2);
+  }
+  main {
+    min-height: var(--main-content-height);
+  }
+  header {
+    @apply px-4;
+  }
+}

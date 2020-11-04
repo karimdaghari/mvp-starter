@@ -8,5 +8,8 @@ module.exports = {
     extend: {}
   },
   variants: {},
-  plugins: []
+  plugins: [],
+  corePlugins: {
+    container: false
+  }
 };
