@@ -9,7 +9,7 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex">
+      <header>
         <h1>MVP</h1>
         <button>CTA</button>
       </header>
