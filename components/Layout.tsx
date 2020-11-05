@@ -9,7 +9,7 @@ export default function Layout({ children }: Props) {
   return (
     <div className="container">
       <header className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">
+        <h1 className="text-lg font-semibold border-b-4 border-black">
           <Link href="/">MVP Starter</Link>
         </h1>
         <button className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600">
