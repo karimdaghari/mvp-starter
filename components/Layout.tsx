@@ -18,9 +18,11 @@ export default function Layout({ children }: Props) {
         className="max-w-sm p-6 mx-auto my-32 bg-white border rounded-md shadow-md outline-none"
         overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-25 h-full p-4"
       >
-        <div className="flex items-center justify-between mb-4">
-          <h1 className="text-lg font-medium">Sign up</h1>
-          <button onClick={() => setIsOpen(false)}>Close</button>
+        <div className="flex items-end justify-between mb-4">
+          <h1 className="text-xl font-medium">Sign up</h1>
+          <button onClick={() => setIsOpen(false)}>
+            <Image src="/close.svg" width={22} height={22} />
+          </button>
         </div>
         <Form inModal />
       </Modal>
