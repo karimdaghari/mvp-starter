@@ -1,4 +1,5 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import Input from "./Input";
 
 type FormData = {
   email: string;
@@ -6,7 +7,7 @@ type FormData = {
 };
 
 export default function Form() {
-  const { register, handleSubmit } = useForm<FormData>();
+  const { handleSubmit, control, errors } = useForm<FormData>();
   const onSubmit = (data: FormData) => console.log({ data });
 
   return (
@@ -16,26 +17,40 @@ export default function Form() {
           <label htmlFor="name" className="text-base font-semibold">
             First name
           </label>
-          <input
-            id="name"
-            type="text"
-            className="p-2 border rounded-md"
-            placeholder="Elon"
+          <Controller
             name="name"
-            ref={register({ required: true })}
+            control={control}
+            render={({ onChange }) => (
+              <Input
+                id="name"
+                type="text"
+                placeholder="Elon"
+                onBlur={e => onChange(e.target.value)}
+                errors={errors.name}
+              />
+            )}
+            defaultValue=""
+            rules={{ required: true }}
           />
         </div>
         <div className="flex flex-col space-y-1 md:w-1/2">
           <label htmlFor="name" className="text-base font-semibold">
             Your email
           </label>
-          <input
-            id="name"
-            type="email"
-            className="p-2 border rounded-md"
-            placeholder="u@me.love"
+          <Controller
             name="email"
-            ref={register({ required: true })}
+            control={control}
+            render={({ onChange }) => (
+              <Input
+                id="email"
+                type="email"
+                placeholder="u@me.com"
+                onBlur={e => onChange(e.target.value)}
+                errors={errors.email}
+              />
+            )}
+            defaultValue=""
+            rules={{ required: true }}
           />
         </div>
       </div>
