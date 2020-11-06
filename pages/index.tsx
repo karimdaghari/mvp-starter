@@ -18,8 +18,8 @@ export default function Index() {
             </h2>
             <p className="text-justify">
               MVP starter is a template made for the busy minded maker. You take
-              care of the copy, and the template takes care of the rest for you:
-              the design, and seo.
+              care of the copy, and the template takes care of the rest for you.
+              Minus the deployment. It's not a miracle worker 🤷🏻‍♂️
             </p>
           </div>
           <Form />
