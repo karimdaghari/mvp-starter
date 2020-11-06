@@ -15,7 +15,7 @@ export default function Form() {
       <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-3">
         <div className="flex flex-col space-y-1 md:w-1/2">
           <label htmlFor="name" className="text-base font-semibold">
-            First name
+            First name *
           </label>
           <Controller
             name="name"
@@ -35,7 +35,7 @@ export default function Form() {
         </div>
         <div className="flex flex-col space-y-1 md:w-1/2">
           <label htmlFor="name" className="text-base font-semibold">
-            Your email
+            Your email *
           </label>
           <Controller
             name="email"
