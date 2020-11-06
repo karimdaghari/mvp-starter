@@ -1,18 +1,37 @@
 import Link from "next/link";
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import Modal from "react-modal";
+import Form from "./Form";
 
 type Props = {
   children: ReactNode;
 };
 export default function Layout({ children }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+  Modal.setAppElement(".container");
+
   return (
     <div className="container">
+      <Modal
+        isOpen={isOpen}
+        className="max-w-sm p-6 mx-auto my-32 bg-white border rounded-md shadow-md outline-none"
+        overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-25 h-full p-4"
+      >
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-lg font-medium">Sign up</h1>
+          <button onClick={() => setIsOpen(false)}>Close</button>
+        </div>
+        <Form inModal />
+      </Modal>
       <header className="flex items-center justify-between">
         <h1 className="text-lg font-semibold border-b-4 border-black">
           <Link href="/">MVP Starter</Link>
         </h1>
-        <button className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600">
+        <button
+          className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600"
+          onClick={() => setIsOpen(true)}
+        >
           Sign up
         </button>
       </header>

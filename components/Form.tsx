@@ -1,19 +1,34 @@
 import { Controller, useForm } from "react-hook-form";
 import Input from "./Input";
+import cn from "classnames";
 
 type FormData = {
   email: string;
   name: string;
 };
 
-export default function Form() {
+type Props = {
+  inModal?: boolean;
+};
+
+export default function Form({ inModal }: Props) {
   const { handleSubmit, control, errors } = useForm<FormData>();
   const onSubmit = (data: FormData) => console.log({ data });
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-3">
-        <div className="flex flex-col space-y-1 md:w-1/2">
+      <div
+        className={cn({
+          "flex flex-col space-y-4": true,
+          "md:flex-row md:space-y-0 md:space-x-3": !inModal
+        })}
+      >
+        <div
+          className={cn({
+            "flex flex-col space-y-1": true,
+            "md:w-1/2": !inModal
+          })}
+        >
           <label htmlFor="name" className="text-base font-semibold">
             First name *
           </label>
@@ -33,7 +48,12 @@ export default function Form() {
             rules={{ required: true }}
           />
         </div>
-        <div className="flex flex-col space-y-1 md:w-1/2">
+        <div
+          className={cn({
+            "flex flex-col space-y-1": true,
+            "md:w-1/2": !inModal
+          })}
+        >
           <label htmlFor="name" className="text-base font-semibold">
             Your email *
           </label>
