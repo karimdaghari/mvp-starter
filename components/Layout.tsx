@@ -35,7 +35,7 @@ export default function Layout({ children }: Props) {
           <Image src="/facebook.svg" width={30} height={30} />
         </a>
         <a
-          href="https://twitter.com/"
+          href="https://instagram.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
