@@ -37,7 +37,7 @@ export default function Index({ data }) {
           >
             <div className="flex items-end justify-between mb-4">
               <h1 className="text-xl font-medium">Sign up</h1>
-              <button onClick={() => setIsOpen(false)}>
+              <button className="p-0" onClick={() => setIsOpen(false)}>
                 <Image src="/close.svg" width={22} height={22} />
               </button>
             </div>
