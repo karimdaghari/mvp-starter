@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import cn from "classnames";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
-  errors: unknown;
+  errors?: unknown;
 }
 
 export default function Input({ errors, ...props }: InputProps) {
