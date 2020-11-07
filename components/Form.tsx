@@ -75,7 +75,7 @@ export default function Form({ inModal }: Props) {
         </div>
       </div>
       <button
-        className="w-full px-6 py-2 font-medium text-white uppercase bg-orange-500 border-2 border-transparent rounded-md hover:bg-transparent hover:border-orange-500 hover:text-black"
+        className="w-full text-white uppercase bg-orange-500 border-2 border-transparent rounded-md hover:bg-transparent hover:border-orange-500 hover:text-black"
         type="submit"
       >
         Sign up

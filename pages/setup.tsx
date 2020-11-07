@@ -1,24 +1,21 @@
+import { Fragment } from "react";
 import Card from "../components/Card";
 import Input from "../components/Input";
 
 export default function Setup() {
   return (
-    <div className="container">
-      <header>
-        <h1>MVP Starter</h1>
-      </header>
-
-      <main>
+    <Fragment>
+      <main className="max-w-xl mx-auto space-y-4">
         <Card id="identity" title="Identity">
-          <form>
-            <div>
-              <label htmlFor="name">Name *</label>
+          <form className="space-y-4">
+            <div className="flex flex-col space-y-2">
+              <label htmlFor="name" className="text-base font-medium">
+                Name *
+              </label>
               <Input placeholder="MVP starter" id="name" />
             </div>
-            <div>
-              <label htmlFor="logo">Logo *</label>
-              <button>Upload</button>
-              <p>Or</p>
+            <div className="flex flex-col space-y-2">
+              <span className="text-base font-medium">Logo *</span>
               <Input placeholder="Link" />
             </div>
           </form>
@@ -42,8 +39,6 @@ export default function Setup() {
               <p>Type</p>
               <button>Image</button>
               <button>Video</button>
-              <button>Upload</button>
-              <p>Or</p>
               <Input placeholder="Link" />
             </div>
           </form>
@@ -66,8 +61,6 @@ export default function Setup() {
           </form>
         </Card>
       </main>
-
-      <footer>Made by ...</footer>
-    </div>
+    </Fragment>
   );
 }

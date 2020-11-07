@@ -31,7 +31,7 @@ export default function Layout({ children }: Props) {
           <Link href="/">MVP Starter</Link>
         </h1>
         <button
-          className="px-6 py-2 font-medium uppercase border-2 border-orange-600 rounded-md hover:text-white hover:bg-orange-600"
+          className="border-2 border-orange-600 hover:text-white hover:bg-orange-600"
           onClick={() => setIsOpen(true)}
         >
           Sign up

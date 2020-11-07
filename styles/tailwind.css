@@ -22,4 +22,7 @@
   header {
     @apply px-4;
   }
+  button {
+    @apply px-6 py-2 font-medium uppercase rounded-md;
+  }
 }
