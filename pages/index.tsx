@@ -1,31 +1,105 @@
-import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import Modal from "react-modal";
 import Form from "../components/Form";
+import { GetStaticProps } from "next";
+import Head from "next/head";
 
-export default function Index() {
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await import("../public/data.json").then(datum => datum.default);
+  return {
+    props: {
+      data
+    }
+  };
+};
+
+export default function Index({
+  data: { name, tagline, description, media, facebook, twitter, instagram }
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  Modal.setAppElement(".container");
+
   return (
     <>
       <Head>
-        <title>MVP Starter</title>
+        <title>{name}</title>
       </Head>
-
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-0">
-        <div className="p-4 space-y-4 text-lg md:p-0 md:px-6 md:pt-40">
-          <div>
-            <h2 className="text-xl italic font-bold">
-              Craft your MVP in under 5 minutes!
-            </h2>
-            <p className="text-justify">
-              MVP starter is a template made for the busy minded maker. You take
-              care of the copy, and the template takes care of the rest for you.
-            </p>
+      <div className="container">
+        <Modal
+          isOpen={isOpen}
+          className="max-w-sm p-6 mx-auto my-32 bg-white border rounded-md shadow-md outline-none"
+          overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-25 h-full p-4"
+        >
+          <div className="flex items-end justify-between mb-4">
+            <h1 className="text-xl font-medium">Sign up</h1>
+            <button onClick={() => setIsOpen(false)}>
+              <Image src="/close.svg" width={22} height={22} />
+            </button>
           </div>
-          <Form />
-        </div>
-        <div className="flex items-center justify-center order-first md:order-last">
-          <Image src="/app.svg" width={600} height={300} />
-        </div>
-      </main>
+          <Form inModal />
+        </Modal>
+        <header className="flex items-center justify-between">
+          <h1 className="text-lg font-semibold border-b-4 border-black">
+            <Link href="/">{name}</Link>
+          </h1>
+          <button
+            className="border-2 border-orange-600 hover:text-white hover:bg-orange-600"
+            onClick={() => setIsOpen(true)}
+          >
+            Sign up
+          </button>
+        </header>
+
+        <main className="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-0">
+          <div className="p-4 space-y-4 text-lg md:p-0 md:px-6 md:pt-40">
+            <div>
+              <h2 className="text-xl italic font-bold">{tagline}</h2>
+              <p className="text-justify">{description}</p>
+            </div>
+            <Form />
+          </div>
+          <div className="flex items-center justify-center order-first md:order-last">
+            <Image src={media} width={600} height={300} />
+          </div>
+        </main>
+
+        <footer className="flex items-center justify-center p-4 space-x-3 border border-t">
+          {twitter && (
+            <a
+              href={"https://twitter.com/" + twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/twitter.svg" width={30} height={30} />
+            </a>
+          )}
+          {facebook && (
+            <a
+              href={"https://facebook.com/" + facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/facebook.svg" width={30} height={30} />
+            </a>
+          )}
+          {instagram && (
+            <a
+              href={"https://instagram.com/" + instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/instagram.svg" width={30} height={30} />
+            </a>
+          )}
+          {!instagram && !twitter && !facebook && (
+            <p className="text-sm font-medium text-gray-600">
+              {name} - {new Date().getFullYear()}
+            </p>
+          )}
+        </footer>
+      </div>
     </>
   );
 }
