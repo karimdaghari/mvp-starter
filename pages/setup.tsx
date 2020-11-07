@@ -5,7 +5,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 type FormData = {
   name: string;
-  logo?: string;
   tagline: string;
   description: string;
   media?: string;
@@ -35,11 +34,10 @@ export default function Setup(props) {
 
   return (
     <>
-      <main className="max-w-lg p-4 mx-auto my-8 space-y-4">
+      <main className="max-w-lg p-4 mx-auto my-8">
         <Card title="Setup">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <section id="identity">
-              <h2 className="mt-12 mb-4 text-lg font-medium">Identity</h2>
               <div className="space-y-4">
                 <div className="flex flex-col space-y-2">
                   <label htmlFor="name">Name *</label>
@@ -58,26 +56,10 @@ export default function Setup(props) {
                     rules={{ required: true }}
                   />
                 </div>
-                <div className="flex flex-col space-y-2">
-                  <label htmlFor="logo">Logo</label>
-                  <Controller
-                    name="logo"
-                    control={control}
-                    render={({ onChange }) => (
-                      <Input
-                        id="logo"
-                        placeholder="Link"
-                        onBlur={({ target: { value } }) => onChange(value)}
-                        defaultValue={data.logo}
-                      />
-                    )}
-                  />
-                </div>
               </div>
             </section>
 
             <section id="content">
-              <h2 className="mt-12 mb-4 text-lg font-medium">Content</h2>
               <div className="space-y-4">
                 <div className="flex flex-col space-y-2">
                   <label htmlFor="tagline">Tagline *</label>
@@ -127,8 +109,6 @@ export default function Setup(props) {
             </section>
 
             <section id="social">
-              <h2 className="mt-12 mb-4 text-lg font-medium">Social</h2>
-
               <div className="space-y-4">
                 <div className="flex flex-col space-y-2">
                   <label htmlFor="facebook">Facebook username</label>
@@ -178,7 +158,6 @@ export default function Setup(props) {
               </div>
             </section>
             <div className="flex justify-end my-4 space-x-3">
-              <button className="text-white bg-blue-800">Preview</button>
               <button className="text-white bg-blue-500">Save</button>
             </div>
           </form>
