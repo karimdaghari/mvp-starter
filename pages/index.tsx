@@ -6,6 +6,7 @@ import Form from "../components/Form";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Setup from "../components/Setup";
+import fs from "fs";
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await import("../public/data.json").then(datum => datum.default);
@@ -20,6 +21,10 @@ export default function Index({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   Modal.setAppElement(".container");
 
+  function onSubmit(data: string) {
+    fs.writeFileSync("../public/data.json", data);
+  }
+
   return (
     <>
       <Head>
@@ -27,7 +32,7 @@ export default function Index({ data }) {
       </Head>
       <div className="container flex flex-col md:flex-row">
         <div className="overflow-y-scroll md:w-1/4">
-          <Setup data={data} />
+          <Setup data={data} onSubmit={onSubmit} />
         </div>
         <div className="md:w-3/4">
           <Modal

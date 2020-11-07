@@ -11,12 +11,17 @@ type FormData = {
   twitter?: string;
 };
 
-export default function Setup(props) {
+type Props = {
+  onSubmit: (json: string) => void;
+  data: FormData;
+};
+
+export default function Setup({ data, onSubmit: handleOnSubmit }: Props) {
   const { control, errors, register, handleSubmit } = useForm<FormData>();
-  const data = props.data as Required<FormData>;
 
   function onSubmit(submittedData: FormData) {
-    console.log({ data: submittedData });
+    const data = JSON.stringify(submittedData);
+    handleOnSubmit(data);
   }
 
   return (
