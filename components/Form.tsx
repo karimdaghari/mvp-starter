@@ -11,11 +11,12 @@ type FormData = {
 
 type Props = {
   inModal?: boolean;
+  hasSubbed: boolean;
+  setHasSubbed: (newState: boolean) => void;
 };
 
-export default function Form({ inModal }: Props) {
+export default function Form({ inModal, hasSubbed, setHasSubbed }: Props) {
   const { handleSubmit, control, errors } = useForm<FormData>();
-  const [hasSubbed, setHasSubbed] = useState(false);
 
   const encode = data => {
     return Object.keys(data)

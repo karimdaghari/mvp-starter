@@ -17,6 +17,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Index({ data }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasSubbed, setHasSubbed] = useState(false);
+
   Modal.setAppElement(".container");
 
   return (
@@ -38,7 +40,7 @@ export default function Index({ data }) {
               <Image src="/close.svg" width={22} height={22} />
             </button>
           </div>
-          <Form inModal />
+          <Form inModal hasSubbed={hasSubbed} setHasSubbed={setHasSubbed} />
         </Modal>
         <header className="flex items-center justify-between">
           <h1 className="text-lg font-semibold border-b-4 border-black">
@@ -58,7 +60,7 @@ export default function Index({ data }) {
               <h2 className="text-xl italic font-bold">{data.tagline}</h2>
               <p className="text-justify">{data.description}</p>
             </div>
-            <Form />
+            <Form hasSubbed={hasSubbed} setHasSubbed={setHasSubbed} />
           </div>
           <div className="flex items-center justify-center order-first md:order-last">
             <Image src={data.media} width={600} height={300} />
