@@ -1,7 +1,7 @@
 import { useForm, Controller } from "react-hook-form";
 import Input from "./Input";
 
-type FormData = {
+export type SetupData = {
   name: string;
   tagline: string;
   description: string;
@@ -12,17 +12,12 @@ type FormData = {
 };
 
 type Props = {
-  onSubmit: (json: string) => void;
-  data: FormData;
+  data: SetupData;
+  onSubmit: (data: SetupData) => Promise<void>;
 };
 
-export default function Setup({ data, onSubmit: handleOnSubmit }: Props) {
-  const { control, errors, register, handleSubmit } = useForm<FormData>();
-
-  function onSubmit(submittedData: FormData) {
-    const data = JSON.stringify(submittedData);
-    handleOnSubmit(data);
-  }
+export default function Setup({ data, onSubmit }: Props) {
+  const { control, errors, register, handleSubmit } = useForm<SetupData>();
 
   return (
     <div className="p-4">
@@ -45,7 +40,7 @@ export default function Setup({ data, onSubmit: handleOnSubmit }: Props) {
                       defaultValue={data.name}
                     />
                   )}
-                  rules={{ required: true }}
+                  // rules={{ required: true }}
                 />
               </div>
             </div>
@@ -66,7 +61,7 @@ export default function Setup({ data, onSubmit: handleOnSubmit }: Props) {
                       defaultValue={data.tagline}
                     />
                   )}
-                  rules={{ required: true }}
+                  // rules={{ required: true }}
                 />
               </div>
               <div className="flex flex-col space-y-2">
@@ -150,7 +145,9 @@ export default function Setup({ data, onSubmit: handleOnSubmit }: Props) {
             </div>
           </section>
           <div className="flex justify-end my-4 space-x-3">
-            <button className="text-white bg-blue-500">Save</button>
+            <button className="text-white bg-blue-500" type="submit">
+              Save
+            </button>
           </div>
         </form>
       </div>

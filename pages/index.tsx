@@ -5,11 +5,10 @@ import Modal from "react-modal";
 import Form from "../components/Form";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Setup from "../components/Setup";
-import fs from "fs";
+import Setup, { SetupData } from "../components/Setup";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await import("../public/data.json").then(datum => datum.default);
+  const data = (await import("../public/data.json")).default;
   return {
     props: {
       data
@@ -21,8 +20,15 @@ export default function Index({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   Modal.setAppElement(".container");
 
-  function onSubmit(data: string) {
-    fs.writeFileSync("../public/data.json", data);
+  async function onSubmit(data: SetupData) {
+    console.log("executing...");
+    console.log({ data });
+    await fetch("/api/", {
+      method: "POST",
+      body: JSON.stringify(data)
+    }).then(s => {
+      console.log({ s });
+    });
   }
 
   return (
