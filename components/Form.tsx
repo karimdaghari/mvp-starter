@@ -16,7 +16,12 @@ export default function Form({ inModal }: Props) {
   const onSubmit = (data: FormData) => console.log({ data });
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      name="sign-up"
+      className="space-y-4"
+      onSubmit={handleSubmit(onSubmit)}
+      data-netlify="true"
+    >
       <div
         className={cn({
           "flex flex-col space-y-4": true,
