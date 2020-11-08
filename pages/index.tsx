@@ -20,17 +20,6 @@ export default function Index({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   Modal.setAppElement(".container");
 
-  async function onSubmit(data: SetupData) {
-    console.log("executing...");
-    console.log({ data });
-    await fetch("/api/", {
-      method: "POST",
-      body: JSON.stringify(data)
-    }).then(s => {
-      console.log({ s });
-    });
-  }
-
   return (
     <>
       <Head>
@@ -38,7 +27,7 @@ export default function Index({ data }) {
       </Head>
       <div className="container flex flex-col md:flex-row">
         <div className="overflow-y-scroll md:w-1/4">
-          <Setup data={data} onSubmit={onSubmit} />
+          <Setup data={data} />
         </div>
         <div className="md:w-3/4">
           <Modal

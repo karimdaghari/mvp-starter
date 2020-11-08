@@ -1,5 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import Input from "./Input";
+import EditJsonFile from "edit-json-file";
 
 export type SetupData = {
   name: string;
@@ -13,11 +14,14 @@ export type SetupData = {
 
 type Props = {
   data: SetupData;
-  onSubmit: (data: SetupData) => Promise<void>;
 };
 
-export default function Setup({ data, onSubmit }: Props) {
+export default function Setup({ data }: Props) {
   const { control, errors, register, handleSubmit } = useForm<SetupData>();
+
+  function onSubmit(data: SetupData) {
+    console.log({ data });
+  }
 
   return (
     <div className="p-4">
