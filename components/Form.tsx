@@ -2,6 +2,7 @@ import { Controller, useForm } from "react-hook-form";
 import Input from "./Input";
 import cn from "classnames";
 import { useState } from "react";
+import Image from "next/image";
 
 type FormData = {
   email: string;
@@ -28,14 +29,15 @@ export default function Form({ inModal }: Props) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "sign-up", ...data })
     })
-      .then(() => alert("Success!"))
+      .then(() => setHasSubbed(true))
       .catch(error => alert(error));
   };
 
   return (
     <>
       {hasSubbed ? (
-        <div className="text-center">
+        <div className="flex flex-col items-center justify-center">
+          <Image src="/check.svg" width={48} height={48} />
           <span className="text-xl font-medium">Thanks for subscribing!</span>
         </div>
       ) : (
