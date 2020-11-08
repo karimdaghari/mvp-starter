@@ -16,6 +16,9 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Index({ data }) {
+  const {
+    location: { origin }
+  } = window;
   const [isOpen, setIsOpen] = useState(false);
   const [hasSubbed, setHasSubbed] = useState(false);
 
@@ -27,6 +30,12 @@ export default function Index({ data }) {
         <title>
           {data.name}: {data.tagline}
         </title>
+        <meta name="description" content={data.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
+        <meta property="og:title" content={data.name} />
+        <meta property="og:description" content={data.tagline} />
+        <meta property="og:image" content={`${origin}/social.jpg`} />
       </Head>
       <div className="container">
         <Modal
