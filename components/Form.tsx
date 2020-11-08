@@ -13,7 +13,21 @@ type Props = {
 
 export default function Form({ inModal }: Props) {
   const { handleSubmit, control, errors } = useForm<FormData>();
-  const onSubmit = (data: FormData) => console.log({ data });
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const onSubmit = async (data: FormData) => {
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "sign-up", ...data })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+  };
 
   return (
     <form
