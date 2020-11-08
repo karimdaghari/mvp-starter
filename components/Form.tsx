@@ -59,7 +59,7 @@ export default function Form({ inModal }: Props) {
                 id="name"
                 type="text"
                 placeholder="Elon"
-                onBlur={e => onChange(e.target.value)}
+                onChange={({ target: { value } }) => onChange(value)}
                 errors={errors.name}
               />
             )}
@@ -84,7 +84,7 @@ export default function Form({ inModal }: Props) {
                 id="email"
                 type="email"
                 placeholder="u@me.com"
-                onBlur={e => onChange(e.target.value)}
+                onChange={({ target: { value } }) => onChange(value)}
                 errors={errors.email}
               />
             )}
