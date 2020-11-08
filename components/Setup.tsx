@@ -1,6 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
 import Input from "./Input";
-import EditJsonFile from "edit-json-file";
 
 export type SetupData = {
   name: string;
