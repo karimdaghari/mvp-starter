@@ -61,7 +61,7 @@ export default function Form({ inModal, hasSubbed, setHasSubbed }: Props) {
               })}
             >
               <label htmlFor="name" className="text-base font-semibold">
-                First name *
+                First name
               </label>
               <Controller
                 name="name"
@@ -86,8 +86,8 @@ export default function Form({ inModal, hasSubbed, setHasSubbed }: Props) {
                 "md:w-1/2": !inModal
               })}
             >
-              <label htmlFor="name" className="text-base font-semibold">
-                Your email *
+              <label htmlFor="email" className="text-base font-semibold">
+                Your email
               </label>
               <Controller
                 name="email"
