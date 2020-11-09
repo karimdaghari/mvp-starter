@@ -43,7 +43,7 @@ export default function Index({ data }) {
           <div className="flex items-end justify-between mb-4">
             <h1 className="text-xl font-medium">Sign up</h1>
             <button className="p-0" onClick={() => setIsOpen(false)}>
-              <Image src="/close.svg" width={22} height={22} />
+              <Image src="/close.svg" width={22} height={22} unoptimized />
             </button>
           </div>
           <Form inModal hasSubbed={hasSubbed} setHasSubbed={setHasSubbed} />
@@ -69,7 +69,7 @@ export default function Index({ data }) {
             <Form hasSubbed={hasSubbed} setHasSubbed={setHasSubbed} />
           </div>
           <div className="flex items-center justify-center order-first md:order-last">
-            <Image src={data.media} width={600} height={300} />
+            <Image src={data.media} width={600} height={300} unoptimized />
           </div>
         </main>
 
@@ -80,7 +80,7 @@ export default function Index({ data }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src="/twitter.svg" width={30} height={30} />
+              <Image src="/twitter.svg" width={30} height={30} unoptimized />
             </a>
           )}
           {data.facebook && (
@@ -89,7 +89,7 @@ export default function Index({ data }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src="/facebook.svg" width={30} height={30} />
+              <Image src="/facebook.svg" width={30} height={30} unoptimized />
             </a>
           )}
           {data.instagram && (
@@ -98,7 +98,7 @@ export default function Index({ data }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src="/instagram.svg" width={30} height={30} />
+              <Image src="/instagram.svg" width={30} height={30} unoptimized />
             </a>
           )}
           {!data.instagram && !data.twitter && !data.facebook && (

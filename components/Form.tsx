@@ -38,7 +38,7 @@ export default function Form({ inModal, hasSubbed, setHasSubbed }: Props) {
     <>
       {hasSubbed ? (
         <div className="flex flex-col items-center justify-center">
-          <Image src="/check.svg" width={48} height={48} />
+          <Image src="/check.svg" width={48} height={48} unoptimized />
           <span className="text-xl font-medium">Thanks for subscribing!</span>
         </div>
       ) : (
