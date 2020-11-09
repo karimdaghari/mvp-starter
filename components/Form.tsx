@@ -73,7 +73,7 @@ export default function Form({ inModal, hasSubbed, setHasSubbed }: Props) {
                     placeholder="Elon"
                     onChange={({ target: { value } }) => onChange(value)}
                     errors={errors.name}
-                    name="first name"
+                    name="name"
                   />
                 )}
                 defaultValue=""
