@@ -33,6 +33,7 @@ export default function Index({ data }) {
         <meta property="og:title" content={data.name} />
         <meta property="og:description" content={data.tagline} />
         <meta property="og:image" content={`${data.siteUrl}/social.jpg`} />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container">
         <Modal
