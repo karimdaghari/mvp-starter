@@ -3,11 +3,11 @@ import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-modal";
 import Form from "../components/Form";
-import { GetStaticProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = (await import("../public/data.json")).default;
+  const data = (await import("../data")).default;
   return {
     props: {
       data
@@ -15,7 +15,9 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Index({ data }) {
+export default function Index({
+  data
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isOpen, setIsOpen] = useState(false);
   const [hasSubbed, setHasSubbed] = useState(false);
 
