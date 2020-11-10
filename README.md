@@ -1,30 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![screenshot](./.github/screenshot.jpg)
 
-## Getting Started
+# Introduction
 
-First, run the development server:
+As a maker, I'm almost always having ideas (both good and bad, but mostly bad ones 😆), therefore it's _really_ important to test them as cheaply as possible before to start coding and the cheapest/fastest way to do that is to create a landing page. Which is what this product is all about.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## What is this
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+MVP starter is a landing page, made with Next.js/React. It is optimized for speed (compact size), seo (with support for shareability) and most importantly well-designed. (you might disagree with me on the last element, but please, hold that thought for a second)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Why should I use this
 
-## Learn More
+The main features of this template are:
 
-To learn more about Next.js, take a look at the following resources:
+1. Speed
+2. SEO-able
+3. Design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Speed & SEO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Truth is, you can't have one without the other. Google nowadays, considers the LCP (Largest Content Paint) as its metric for ranking the website into the SERP therefore it has become of utmost importance to make your website/webapp as fast as possible (even if it's just a landing page). This landing page is fast. Blazing fast.
 
-## Deploy on Vercel
+![metrics](./.github/metrics.jpg)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+That said, here's what you get:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- The output is an HTML only page (thanks to next's SSG).
+- The necessary head elements (meta) are generated automatically for you (therefore you don't need to think about what to include/exclude)
+- The page was created with accessibility in mind, therefore there shouldn't be any issue when it comes to people accessing it from non-desktop, low-end devices.
+
+## Design
+
+First of all, let's get something cleared up from the gate: `Design !== Aesthetics`.
+
+You think that this template isn't aesthetically pleasant? Sure. I'll give you that (maybe). That said, this template was carefully crafted in a way that surfaces the information and incites action in the best way possible.
+
+# Limitation
+
+- You can host this template only on netlify, this is a hard requirement since A) there's a form and b) in investigating other solutions, I found that netlify was the best for JAMStack websites.
